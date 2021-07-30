@@ -1,53 +1,64 @@
-<!DOCTYPE html><!--HTML5 doctype-->
+<!DOCTYPE html>
+<!--HTML5 doctype-->
 <html lang="pt-br">
+
 <head>
-	<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+	<link rel="shortcut icon" type="image/png" href="favicon.png" />
 	<title> GoPro Web Controle</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<style>
-body {
-    font-family: 'Roboto';font-size: 15px;
-		 color: #64686d;
-}
-footer {
-    font-family: 'Roboto';font-size: 13px;
-		color: #ffffff;
-		position: absolute;
-bottom: 0;
-width: 100%;
-height: 80px;
-background: #498fcd;
-border-top: solid 1px #eee;
-}
-a:link    {
-  /* Applies to all unvisited links */
-  text-decoration:  none;
-  color:            #ffffff;
-  }
-a:hover   {
-  /* Applies to links under the pointer */
-  text-decoration:  none;
-  color:            #49cd8f;
-  }
-	.btn-info {
-    background-color: #498fcd;
-}
-.btn-info:hover {
-	background-color: #49cd8f;
-	    border-color: #49cd8f;
-}
-iframe {
-width: 600px;
-height: 480px;
-border: 1px #498fcd dashed;
-}
-</style>
-    <script type='text/JavaScript'>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+		integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		body {
+			font-family: 'Roboto';
+			font-size: 15px;
+			color: #64686d;
+		}
+
+		footer {
+			font-family: 'Roboto';
+			font-size: 13px;
+			color: #ffffff;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 80px;
+			background: #636363;
+			border-top: solid 1px #eee;
+		}
+
+		a:link {
+			/* Applies to all unvisited links */
+			text-decoration: none;
+			color: #ffffff;
+		}
+
+		a:hover {
+			/* Applies to links under the pointer */
+			text-decoration: none;
+			color: #49cd8f;
+		}
+
+		.btn-info {
+			background-color: #636363;
+		}
+
+		.btn-info:hover {
+			background-color: #49cd8f;
+			border-color: #49cd8f;
+		}
+
+		iframe {
+			width: 600px;
+			height: 480px;
+			border: 1px #636363 dashed;
+		}
+	</style>
+	<script type='text/JavaScript'>
 			function getXhr(){
 				var xhr = null;
 				if(window.XMLHttpRequest) // Firefox and others
@@ -126,223 +137,220 @@ border: 1px #498fcd dashed;
 			}
 
 		</script>
-		</head>
-		<body>
-			<div class="container-fluid">
-			&nbsp;<h5>Selecionar modo</h5>
-		   <div id="control1">
-		      &nbsp;<button onclick="command('mode','0')" class="btn btn-info">Video</button>
-		      &nbsp;<button onclick="command('mode','1')" class="btn btn-info">Foto</button>
-		      &nbsp;<button onclick="command('mode','2')" class="btn btn-info">Timelapse</button>
-		      &nbsp;<button onclick="system('sleep')" class="btn btn-warning">Desligar GoPro</button>
-		      <hr>
-		      <div class="row">
-		         <div class="col-md-5">
-							 <h5>Opções</h5>
-		            <table>
-		               <tr>
-		                  <td>Resolução modo video </td>
-		                  <td>
-		                     <select class="form-control form-control-sm">
-		                        <option selected="selected">SELECIONE</option>
-		                        <option onclick="setting('2','1')">4K</option>
-		                        <option onclick="setting('2','7')">1440p</option>
-		                        <option onclick="setting('2','9')">1080p</option>
-		                        <option onclick="setting('2','10')">960p</option>
-		                        <option onclick="setting('2','12')">720p</option>
-		                        <option onclick="setting('2','13')">WVGA</option>
-		                     </select>
-		               <tr>
-		                  <td>Quadros por segundo </td>
-		                  <td>
-		                     <select class="form-control form-control-sm">
-		                        <option selected="selected">SELECIONE</option>
-		                        <option onclick="setting('3','1')">120fps (720p)</option>
-		                        <option onclick="setting('3','2')">100fps</option>
-		                        <option onclick="setting('3','3')">90fps</option>
-		                        <option onclick="setting('3','4')">80fps</option>
-		                        <option onclick="setting('3','5')">60fps</option>
-		                        <option onclick="setting('3','6')">50fps</option>
-		                        <option onclick="setting('3','7')">48fps</option>
-		                        <option onclick="setting('3','8')">30fps</option>
-		                        <option onclick="setting('3','9')">25fps</option>
-		                     </select>
-		               <tr>
-		                  <td>Balanço de branco modo video </td>
-		                  <td>
-		                     <select class="form-control form-control-sm">
-		                        <option selected="selected">SELECIONE</option>
-		                        <option onclick="setting('11','0')">Auto</option>
-		                        <option onclick="setting('11','1')">3000K</option>
-		                        <option onclick="setting('11','5')">4000K</option>
-		                        <option onclick="setting('11','6')">4800K</option>
-		                        <option onclick="setting('11','2')">5500K</option>
-		                        <option onclick="setting('11','7')">6000K</option>
-		                        <option onclick="setting('11','3')">6500K</option>
-		                        <option onclick="setting('11','4')">Nativo</option>
-		                     </select>
-		               <tr>
-		                  <td>Nitidez modo video </td>
-		                  <td>
-		                     <select class="form-control form-control-sm">
-		                        <option selected="selected">SELECIONE</option>
-		                        <option onclick="setting('14','0')">Alta</option>
-		                        <option onclick="setting('14','1')">Média</option>
-		                        <option onclick="setting('14','2')">Baixa</option>
-		                     </select>
-		               <tr>
-		                  <td>ISO modo video </td>
-		                  <td>
-		                     <select class="form-control form-control-sm">
-		                        <option selected="selected">SELECIONE</option>
-		                        <option onclick="setting('13','0')">6400</option>
-		                        <option onclick="setting('13','3')">3200</option>
-		                        <option onclick="setting('13','1')">1600</option>
-		                        <option onclick="setting('13','4')">800</option>
-		                        <option onclick="setting('13','2')">400</option>
-		                        <option onclick="setting('13','7')">200</option>
-		                        <option onclick="setting('13','8')">100</option>
-		                     </select>
-		               <tr>
-		                  <td>Estabilização de video </td>
-		                  <td>
-		                     <select class="form-control form-control-sm">
-		                        <option selected="selected">SELECIONE</option>
-		                        <option onclick="setting('78','1')">Sim</option>
-		                        <option onclick="setting('78','0')">Não</option>
-		                     </select>
-		               <tr>
-		                  <td>Habilitar audio </td>
-		                  <td>
-		                     <select class="form-control form-control-sm">
-		                        <option selected="selected">SELECIONE</option>
-		                        <option onclick="setting('96','1')">Sim</option>
-		                        <option onclick="setting('96','0')">Não</option>
-		                     </select>
-		               <tr>
-		                  <td>Resolução modo foto </td>
-		                  <td>
-		                     <select class="form-control form-control-sm">
-		                        <option selected="selected">SELECIONE</option>
-		                        <option onclick="setting('17','0')">12MP Wide</option>
-		                        <option onclick="setting('17','10')">12MP Linear</option>
-		                        <option onclick="setting('17','8')">12MP Médio</option>
-		                        <option onclick="setting('17','9')">12MP Estreito</option>
-		                     </select>
-		               <tr>
-		                  <td>Balanço de branco modo foto </td>
-		                  <td>
-		                     <select class="form-control form-control-sm">
-		                        <option selected="selected">SELECIONE</option>
-		                        <option onclick="setting('22','0')">Auto</option>
-		                        <option onclick="setting('22','1')">3000K</option>
-		                        <option onclick="setting('22','5')">4000K</option>
-		                        <option onclick="setting('22','6')">4800K</option>
-		                        <option onclick="setting('22','2')">5500K</option>
-		                        <option onclick="setting('22','7')">6000K</option>
-		                        <option onclick="setting('22','3')">6500K</option>
-		                        <option onclick="setting('22','4')">Nativo</option>
-		                     </select>
-		               <tr>
-		                  <td>Nitidez modo foto </td>
-		                  <td>
-		                     <select class="form-control form-control-sm">
-		                        <option selected="selected">SELECIONE</option>
-		                        <option onclick="setting('25','0')">Alta</option>
-		                        <option onclick="setting('25','1')">Média</option>
-		                        <option onclick="setting('25','2')">Baixa</option>
-		                     </select>
-		               <tr>
-		                  <td>ISO modo foto </td>
-		                  <td>
-		                     <select class="form-control form-control-sm">
-		                        <option selected="selected">SELECIONE</option>
-		                        <option onclick="setting('24','0')">800</option>
-		                        <option onclick="setting('24','1')">400</option>
-		                        <option onclick="setting('24','2')">200</option>
-		                        <option onclick="setting('24','3')">100</option>
-		                     </select>
-		               <tr>
-		                  <td>Velocidade do obturador </td>
-		                  <td>
-		                     <select class="form-control form-control-sm">
-		                        <option selected="selected">SELECIONE</option>
-		                        <option onclick="setting('97','0')">Auto</option>
-		                        <option onclick="setting('97','1')">1/125</option>
-		                        <option onclick="setting('97','2')">1/250</option>
-		                        <option onclick="setting('97','3')">1/500</option>
-		                        <option onclick="setting('97','4')">1/1000</option>
-		                        <option onclick="setting('97','5')">1/2000</option>
-		                     </select>
-		               <tr>
-		                  <td>WDR (Wide Dynamic Range) </td>
-		                  <td>
-		                     <select class="form-control form-control-sm">
-		                        <option selected="selected">SELECIONE</option>
-		                        <option onclick="setting('77','1')">Sim</option>
-		                        <option onclick="setting('77','1')">Não</option>
-		                     </select>
+</head>
 
-		               <tr>
-		                  <td>Velocidade do obturador </td>
-		                  <td>
-		                     <select class="form-control form-control-sm">
-		                        <option selected="selected">SELECIONE</option>
-		                        <option onclick="setting('97','0')">Auto</option>
-		                        <option onclick="setting('97','1')">1/125</option>
-		                        <option onclick="setting('97','2')">1/250</option>
-		                        <option onclick="setting('97','3')">1/500</option>
-		                        <option onclick="setting('97','4')">1/1000</option>
-		                        <option onclick="setting('97','5')">1/2000</option>
-		                     </select>
-															 <tr>
-																<td><b>Modos secundários (VIDEO) </b></td>
-																	<td>
-																		 <select class="form-control form-control-sm">
-																				<option selected="selected">SELECIONE</option>
-																				<option onclick="submode('0','0')">Video (padrão)</option>
-																				<option onclick="submode('0','1')">Timelapse</option>
-																				<option onclick="submode('0','2')">Video+foto</option>
-																				<option onclick="submode('0','3')">Looping</option>
-																		 </select>
-																		 <tr>
-																				<td><b>Modos secundários (FOTO) </b></td>
-																				<td>
-																					 <select class="form-control form-control-sm">
-																							<option selected="selected">SELECIONE</option>
-																							<option onclick="submode('1','0')">Único (padrão)</option>
-																							<option onclick="submode('1','1')">Continuo</option>
-																							<option onclick="submode('1','2')">Noturno</option>
-																							<option onclick="submode('2','0')">Multishot (Burst)</option>
-																							<option onclick="submode('2','1')">Timelapse</option>
-																							<option onclick="submode('2','2')">Nightlapse</option>
-																					 </select>
-		            </table>
-		         </div>
-		         <div class="col-md-4">
-							 <h5>Gerenciador de arquivos</h5>
-		            <iframe src="http://10.5.5.9:8080/videos/DCIM/100GOPRO/"></iframe>
-								&nbsp;<button id="recordtrigger"  onclick="command('shutter','1')" class="btn btn-success"><i class="fa fa-video-camera" style="font-size:24px"></i></button>
-							 &nbsp;<button id="stoptrigger" onclick="command('shutter','0')" class="btn btn-danger"><i class="fa fa-times-circle" style="font-size:24px"></i></button>
-		         </div>
-		      </div>
-		   </div>
-		 </div>
-		   <footer>
-		      <div class="row">
-		         <div class="col-md-12">
-							 <b>Gerenciador GPWeb, v0.9b</b><br>
-		            </a>
-		            <br> <a href="mailto:&#116;&#111;&#114;&#101;&#108;&#108;&#105;&#064;&#121;&#097;&#104;&#111;&#111;&#046;&#099;&#111;&#109;">Desenvolvido por Gabriel Torelli</a>
-		         </div>
+<body>
+	<div class="container-fluid">
+		<h5>Please, check your GoPro IP address and change it in code if necessary</h5>
+		<h5>Operation mode:</h5>
+		<div id="control1">
+			&nbsp;<button onclick="command('mode','0')" class="btn btn-info">Video</button>
+			&nbsp;<button onclick="command('mode','1')" class="btn btn-info">Photo</button>
+			&nbsp;<button onclick="command('mode','2')" class="btn btn-info">Timelapse</button>
+			&nbsp;<button onclick="system('sleep')" class="btn btn-warning">Shutdown GoPro</button>
+			<hr>
+			<div class="row">
+				<div class="col-md-5">
+					<h5>Opções</h5>
+					<table>
+						<tr>
+							<td>Video resolution</td>
+							<td>
+								<select class="form-control form-control-sm">
+									<option selected="selected">Choose a value</option>
+									<option onclick="setting('2','1')">4K</option>
+									<option onclick="setting('2','7')">1440p</option>
+									<option onclick="setting('2','9')">1080p</option>
+									<option onclick="setting('2','10')">960p</option>
+									<option onclick="setting('2','12')">720p</option>
+									<option onclick="setting('2','13')">WVGA</option>
+								</select>
+						<tr>
+							<td>Video FPS</td>
+							<td>
+								<select class="form-control form-control-sm">
+									<option selected="selected">Choose a value</option>
+									<option onclick="setting('3','1')">120fps (720p)</option>
+									<option onclick="setting('3','2')">100fps</option>
+									<option onclick="setting('3','3')">90fps</option>
+									<option onclick="setting('3','4')">80fps</option>
+									<option onclick="setting('3','5')">60fps</option>
+									<option onclick="setting('3','6')">50fps</option>
+									<option onclick="setting('3','7')">48fps</option>
+									<option onclick="setting('3','8')">30fps</option>
+									<option onclick="setting('3','9')">25fps</option>
+								</select>
+						<tr>
+							<td>Video white balance</td>
+							<td>
+								<select class="form-control form-control-sm">
+									<option selected="selected">Choose a value</option>
+									<option onclick="setting('11','0')">Auto</option>
+									<option onclick="setting('11','1')">3000K</option>
+									<option onclick="setting('11','5')">4000K</option>
+									<option onclick="setting('11','6')">4800K</option>
+									<option onclick="setting('11','2')">5500K</option>
+									<option onclick="setting('11','7')">6000K</option>
+									<option onclick="setting('11','3')">6500K</option>
+									<option onclick="setting('11','4')">Nativo</option>
+								</select>
+						<tr>
+							<td>Video sharpness</td>
+							<td>
+								<select class="form-control form-control-sm">
+									<option selected="selected">Choose a value</option>
+									<option onclick="setting('14','0')">High</option>
+									<option onclick="setting('14','1')">Medium</option>
+									<option onclick="setting('14','2')">Low</option>
+								</select>
+						<tr>
+							<td>Video ISO</td>
+							<td>
+								<select class="form-control form-control-sm">
+									<option selected="selected">Choose a value</option>
+									<option onclick="setting('13','0')">6400</option>
+									<option onclick="setting('13','3')">3200</option>
+									<option onclick="setting('13','1')">1600</option>
+									<option onclick="setting('13','4')">800</option>
+									<option onclick="setting('13','2')">400</option>
+									<option onclick="setting('13','7')">200</option>
+									<option onclick="setting('13','8')">100</option>
+								</select>
+						<tr>
+							<td>Video stabilization</td>
+							<td>
+								<select class="form-control form-control-sm">
+									<option selected="selected">Choose a value</option>
+									<option onclick="setting('78','1')">Yes</option>
+									<option onclick="setting('78','0')">No</option>
+								</select>
+						<tr>
+							<td>Enable audio</td>
+							<td>
+								<select class="form-control form-control-sm">
+									<option selected="selected">Choose a value</option>
+									<option onclick="setting('96','1')">Yes</option>
+									<option onclick="setting('96','0')">No</option>
+								</select>
+						<tr>
+							<td>Photo resolution</td>
+							<td>
+								<select class="form-control form-control-sm">
+									<option selected="selected">Choose a value</option>
+									<option onclick="setting('17','0')">12MP Wide</option>
+									<option onclick="setting('17','10')">12MP Linear</option>
+									<option onclick="setting('17','8')">12MP Médio</option>
+									<option onclick="setting('17','9')">12MP Estreito</option>
+								</select>
+						<tr>
+							<td>Photo withe balance</td>
+							<td>
+								<select class="form-control form-control-sm">
+									<option selected="selected">Choose a value</option>
+									<option onclick="setting('22','0')">Auto</option>
+									<option onclick="setting('22','1')">3000K</option>
+									<option onclick="setting('22','5')">4000K</option>
+									<option onclick="setting('22','6')">4800K</option>
+									<option onclick="setting('22','2')">5500K</option>
+									<option onclick="setting('22','7')">6000K</option>
+									<option onclick="setting('22','3')">6500K</option>
+									<option onclick="setting('22','4')">Nativo</option>
+								</select>
+						<tr>
+							<td>Photo sharpness</td>
+							<td>
+								<select class="form-control form-control-sm">
+									<option selected="selected">Choose a value</option>
+									<option onclick="setting('25','0')">High</option>
+									<option onclick="setting('25','1')">Medium</option>
+									<option onclick="setting('25','2')">Low</option>
+								</select>
+						<tr>
+							<td>Photo ISO</td>
+							<td>
+								<select class="form-control form-control-sm">
+									<option selected="selected">Choose a value</option>
+									<option onclick="setting('24','0')">800</option>
+									<option onclick="setting('24','1')">400</option>
+									<option onclick="setting('24','2')">200</option>
+									<option onclick="setting('24','3')">100</option>
+								</select>
+						<tr>
+							<td>Shutter speed</td>
+							<td>
+								<select class="form-control form-control-sm">
+									<option selected="selected">Choose a value</option>
+									<option onclick="setting('97','0')">Auto</option>
+									<option onclick="setting('97','1')">1/125</option>
+									<option onclick="setting('97','2')">1/250</option>
+									<option onclick="setting('97','3')">1/500</option>
+									<option onclick="setting('97','4')">1/1000</option>
+									<option onclick="setting('97','5')">1/2000</option>
+								</select>
+						<tr>
+							<td>WDR (Wide Dynamic Range) </td>
+							<td>
+								<select class="form-control form-control-sm">
+									<option selected="selected">Choose a value</option>
+									<option onclick="setting('77','1')">Yes</option>
+									<option onclick="setting('77','1')">No</option>
+								</select>
+
+						<tr>
+							<td><b>Secondary modes (Video) </b></td>
+							<td>
+								<select class="form-control form-control-sm">
+									<option selected="selected">Choose a value</option>
+									<option onclick="submode('0','0')">Video (padrão)</option>
+									<option onclick="submode('0','1')">Timelapse</option>
+									<option onclick="submode('0','2')">Video+Photo</option>
+									<option onclick="submode('0','3')">Looping</option>
+								</select>
+						<tr>
+							<td><b>Seconday modes (Photo) </b></td>
+							<td>
+								<select class="form-control form-control-sm">
+									<option selected="selected">Choose a value</option>
+									<option onclick="submode('1','0')">Único (padrão)</option>
+									<option onclick="submode('1','1')">Continuo</option>
+									<option onclick="submode('1','2')">Noturno</option>
+									<option onclick="submode('2','0')">Multishot (Burst)</option>
+									<option onclick="submode('2','1')">Timelapse</option>
+									<option onclick="submode('2','2')">Nightlapse</option>
+								</select>
+					</table>
 				</div>
-				<iframe src="http://10.5.5.9/gp/gpControl/command/wireless/pair/complete?success=1&deviceName=NUEM"  style="width:0;height:0;border:0; border:none;">
-				</iframe>
-		   </footer>
+				<div class="col-md-4">
+					<h5>File Explorer</h5>
+					<iframe src="http://10.5.5.9:8080/videos/DCIM/100GOPRO/"></iframe>
+					&nbsp;<button id="recordtrigger" onclick="command('shutter','1')" class="btn btn-success"><i
+							class="fa fa-video-camera" style="font-size:24px"></i></button>
+					&nbsp;<button id="stoptrigger" onclick="command('shutter','0')" class="btn btn-danger"><i
+							class="fa fa-times-circle" style="font-size:24px"></i></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="row">
+			<div class="col-md-12">
+				<b>Gerenciador GPWeb, v0.9b</b><br>
+				</a>
+				<br> <a
+					href="mailto:&#116;&#111;&#114;&#101;&#108;&#108;&#105;&#064;&#121;&#097;&#104;&#111;&#111;&#046;&#099;&#111;&#109;">Desenvolvido
+					por Gabriel Torelli</a>
+			</div>
+		</div>
+		<iframe src="http://10.5.5.9/gp/gpControl/command/wireless/pair/complete?success=1&deviceName=NUEM"
+			style="width:0;height:0;border:0; border:none;">
+		</iframe>
+	</footer>
 
-		   <!-- Optional JavaScript -->
-		   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-		</body>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+		integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+		crossorigin="anonymous"></script>
+</body>
 
-		</html>
+</html>
